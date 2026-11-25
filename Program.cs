@@ -1,3 +1,5 @@
+using MVC01.CustomMiddlewares;
+
 namespace MVC01
 {
     public class Program
@@ -11,6 +13,7 @@ namespace MVC01
 
             var app = builder.Build();
 
+            app.UseMiddleware<CustomMiddlewares.RequestTimingMiddleware>();
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
